@@ -976,11 +976,6 @@
 
 <script>
   (function(){
-    var lock = document.getElementById('lock');
-    if(sessionStorage.getItem('nn_unlocked') === '1'){
-      lock.remove();
-      return;
-    }
     var ft = document.getElementById('ft');
     setTimeout(function(){ try{ ft.focus(); }catch(e){} }, 50);
     ft.addEventListener('input', function(){
@@ -999,7 +994,6 @@
     if(ftVal === 4 && inVal === 11){
       err.textContent = 'yay ♡';
       lock.classList.add('unlocked');
-      sessionStorage.setItem('nn_unlocked', '1');
       setTimeout(function(){ lock.remove(); }, 700);
       return false;
     }
