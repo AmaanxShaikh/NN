@@ -1,6 +1,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>For Bauni</title>
+<meta name="description" content="A little corner of the internet, made for you.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="For Bauni ♡">
+<meta property="og:description" content="A little corner of the internet, made for you.">
+<meta property="og:url" content="https://amaanxshaikh.github.io/NN/">
+<meta property="og:image" content="https://amaanxshaikh.github.io/NN/images/Snapchat-1346177277.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#5c1f2a">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23c47a7a' d='M12 21s-7-4.5-9.5-9C.8 8.7 2.5 5 6 5c2 0 3.5 1 4 2.5C10.5 6 12 5 14 5c3.5 0 5.2 3.7 3.5 7-2.5 4.5-9.5 9-9.5 9z'/%3E%3C/svg%3E">
 <style>
   :root{
@@ -119,13 +127,6 @@
     background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.55));
     pointer-events:none;
   }
-  .frame .placeholder{
-    position:absolute; inset:0;
-    display:grid; place-items:center;
-    font-family:var(--serif); font-style:italic;
-    color:rgba(241,230,208,.4);
-    font-size:.8rem;
-  }
   .film-title{
     position:absolute; left:50%; top:50%;
     transform:translate(-50%,-50%) rotate(-2deg);
@@ -143,15 +144,6 @@
     text-shadow:0 2px 4px rgba(0,0,0,.7), 0 0 12px rgba(0,0,0,.5);
     margin-top:14px; opacity:1;
   }
-
-  .film-caption{
-    text-align:center;
-    font-family:var(--typewriter);
-    font-size:.72rem; letter-spacing:.35em; text-transform:uppercase;
-    color:var(--rose); opacity:.7;
-    margin:18px 0 72px;
-  }
-  .film-caption span{margin:0 10px}
 
   /* ——— section header ——— */
   section{margin:80px 0; position:relative}
@@ -173,13 +165,6 @@
     background:radial-gradient(ellipse at center, var(--rose) 0%, transparent 70%);
     opacity:.6;
   }
-  .section-sub{
-    font-family:var(--typewriter);
-    font-size:.7rem; letter-spacing:.4em; text-transform:uppercase;
-    color:var(--rose); opacity:.75;
-    margin:0;
-  }
-
   /* ——— polaroid primitive ——— */
   .polaroid{
     background:var(--paper);
@@ -219,8 +204,6 @@
     box-shadow:0 2px 5px rgba(0,0,0,.15);
   }
   .tape.top{top:-11px; left:50%; transform:translateX(-50%) rotate(-4deg)}
-  .tape.tl{top:-10px; left:-14px; transform:rotate(-35deg)}
-  .tape.tr{top:-10px; right:-14px; transform:rotate(35deg)}
   .tape.mint{background:var(--tape-mint)}
   .tape.rose{background:var(--tape-rose)}
 
@@ -279,47 +262,6 @@
   /* floating decorations positioned absolutely inside sections */
   .deco{position:absolute; pointer-events:none; z-index:3}
 
-  /* ——— THINGS I LOVE (sticky note wall) ——— */
-  .love-wall{
-    position:relative;
-    padding:20px 0;
-  }
-  .notes-scatter{
-    display:grid;
-    grid-template-columns:repeat(12,1fr);
-    gap:0;
-    align-items:start;
-    min-height:420px;
-    position:relative;
-  }
-  .note{
-    grid-column:span 4;
-    padding:22px 20px 24px;
-    color:var(--ink);
-    font-family:var(--script);
-    font-size:1.4rem; line-height:1.25;
-    box-shadow:var(--shadow-tight);
-    position:relative;
-    transition:transform .4s cubic-bezier(.2,.8,.3,1.2);
-    min-height:120px;
-  }
-  .note::before{
-    content:""; position:absolute;
-    top:-7px; left:50%;
-    transform:translateX(-50%);
-    width:12px; height:12px; border-radius:50%;
-    background:radial-gradient(circle at 35% 35%, #ff8a8a, #7a1616 70%);
-    box-shadow:0 3px 4px rgba(0,0,0,.5);
-  }
-  .note:hover{transform:rotate(0) translateY(-4px) scale(1.03); z-index:5}
-
-  .note.n1{background:var(--note-rose); transform:rotate(-4deg); margin-top:0}
-  .note.n2{background:var(--note-butter); transform:rotate(3deg); margin-top:40px}
-  .note.n3{background:var(--note-mint); transform:rotate(-2deg); margin-top:12px}
-  .note.n4{background:var(--note-lilac); transform:rotate(2deg); margin-top:60px}
-  .note.n5{background:var(--note-blue); transform:rotate(-3deg); margin-top:20px}
-  .note.n6{background:var(--note-rose); transform:rotate(2.5deg); margin-top:48px}
-
   /* ——— MOMENTS gallery ——— */
   .gallery{
     display:grid;
@@ -343,100 +285,7 @@
   .gallery .polaroid:nth-child(2n) .photo{background:linear-gradient(160deg,#5a2028,#2a0d12)}
   .gallery .polaroid:nth-child(3n) .photo{background:linear-gradient(200deg,#7a3242,#3d141a)}
 
-  /* ——— ON REPEAT (cassette section) ——— */
-  .mixtape{
-    display:grid;
-    grid-template-columns:auto 1fr;
-    gap:48px;
-    align-items:center;
-  }
-  .cassette{
-    width:280px; aspect-ratio:16/10;
-    background:linear-gradient(160deg,#1a0508,#3d141a);
-    border-radius:6px;
-    padding:14px;
-    box-shadow:var(--shadow-soft), inset 0 0 20px rgba(0,0,0,.5);
-    position:relative;
-    color:var(--paper);
-    transform:rotate(-2deg);
-  }
-  .cassette-label{
-    background:var(--paper-warm);
-    color:var(--ink);
-    height:52%;
-    border-radius:2px;
-    padding:8px 14px;
-    font-family:var(--script);
-    font-size:1.1rem;
-    line-height:1.1;
-    position:relative;
-    box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);
-  }
-  .cassette-label::before{
-    content:""; position:absolute;
-    left:0; right:0; top:20px; height:1px;
-    background:rgba(180,60,60,.3);
-  }
-  .cassette-label small{
-    display:block;
-    font-family:var(--typewriter);
-    font-size:.55rem; letter-spacing:.3em;
-    text-transform:uppercase;
-    color:var(--rose-deep); opacity:.7;
-    margin-bottom:6px;
-  }
-  .reels{
-    display:flex; justify-content:space-around;
-    align-items:center; margin-top:12px;
-    height:32%;
-  }
-  .reel{
-    width:44px; height:44px; border-radius:50%;
-    background:radial-gradient(circle,#2a1712 30%, #0f0709 32%, #2a1712 34%, #0f0709 60%);
-    position:relative;
-    box-shadow:inset 0 0 0 2px #4a1a22;
-  }
-  .reel::after{
-    content:""; position:absolute; inset:14px;
-    border-radius:50%;
-    background:radial-gradient(circle, #c47a7a 30%, transparent 32%),
-               conic-gradient(from 0deg, #3d141a, #6a2226, #3d141a, #6a2226, #3d141a);
-  }
-  .tracklist{
-    font-family:var(--typewriter);
-    font-size:.95rem;
-    line-height:1.9;
-    color:var(--paper); opacity:.92;
-  }
-  .tracklist li{
-    display:flex; gap:14px;
-    padding:6px 0;
-    border-bottom:1px dashed rgba(241,230,208,.15);
-  }
-  .tracklist li:last-child{border:none}
-  .tracklist .num{
-    color:var(--rose); font-size:.75rem; letter-spacing:.2em;
-    min-width:24px; padding-top:4px;
-  }
-  .tracklist .title{color:var(--paper)}
-  .tracklist .artist{color:var(--rose); opacity:.8; font-style:italic}
-  .tracklist{list-style:none; padding:0; margin:0; max-width:420px}
-
-  .mixtape-solo{
-    display:inline-block;
-    position:relative;
-  }
-  .mixtape-solo .cassette{margin:0 auto}
-  .cassette-caption{
-    font-family:var(--script);
-    color:var(--paper);
-    font-size:1.35rem;
-    margin-top:22px;
-    opacity:.9;
-    max-width:360px;
-  }
-
-  /* ——— LITTLE NOTE (short letter — restored) ——— */
+  /* ——— LITTLE NOTE (short letter) ——— */
   .note-card{
     max-width:520px;
     margin:0 auto;
@@ -490,7 +339,7 @@
     position:relative;
     display:grid; place-items:center;
     padding:20px 0;
-    min-height:320px;
+    min-height:370px;
     perspective:800px;
   }
   .envelope{
@@ -533,22 +382,37 @@
 
   .click-me{
     position:absolute;
-    bottom:0;
+    bottom:4px;
     left:50%;
     transform:translateX(-50%);
     font-family:var(--script);
-    color:var(--paper);
-    font-size:1.6rem;
-    background:var(--wall);
+    color:var(--wall);
+    font-size:1.75rem;
+    line-height:1;
+    background:linear-gradient(180deg,#faf3e3,#efe2c6);
     border:none;
-    padding:10px 30px 12px;
-    border-radius:2px;
+    padding:13px 40px 16px;
+    border-radius:3px;
     cursor:pointer;
-    box-shadow:0 6px 16px rgba(0,0,0,.35);
-    transition:transform .2s ease, background .2s ease;
-    letter-spacing:.02em;
+    letter-spacing:.01em;
+    animation:click-pulse 2.4s ease-in-out infinite;
+    transition:transform .22s cubic-bezier(.2,.8,.3,1.2);
   }
-  .click-me:hover{transform:translateX(-50%) translateY(-2px); background:var(--wall-hi)}
+  @keyframes click-pulse{
+    0%,100%{
+      box-shadow:0 10px 24px rgba(0,0,0,.45),
+                 inset 0 -2px 0 rgba(0,0,0,.08),
+                 0 0 0 0 rgba(196,122,122,.55);
+    }
+    50%{
+      box-shadow:0 10px 24px rgba(0,0,0,.45),
+                 inset 0 -2px 0 rgba(0,0,0,.08),
+                 0 0 0 14px rgba(196,122,122,0);
+    }
+  }
+  .click-me:hover{transform:translateX(-50%) translateY(-3px) scale(1.04)}
+  .click-me:active{transform:translateX(-50%) translateY(-1px) scale(.99)}
+  .click-me:focus-visible{outline:2px solid var(--paper); outline-offset:4px}
   .envelope-stage.opened .click-me,
   .envelope-stage.opened .envelope-hint{
     opacity:0;
@@ -885,7 +749,7 @@
     from{opacity:0; transform:translateY(20px)}
     to{opacity:1; transform:translateY(0)}
   }
-  .filmstrip,.hello,.love-wall,.gallery,.mixtape,.note-card,footer{
+  .filmstrip,.hello,.gallery,.note-card,footer{
     animation:drift-in .9s ease both;
   }
   @media (prefers-reduced-motion:reduce){
@@ -896,9 +760,7 @@
   .deco svg{display:block; width:100%; height:100%}
   .deco.scissors{width:74px; height:74px}
   .deco.heart{width:36px; height:36px}
-  .deco.star{width:22px; height:22px}
   .deco.arrow{width:80px; height:60px}
-  .deco.stamp{width:56px; height:56px}
 
   /* ——— responsive ——— */
   @media (max-width:900px){
@@ -909,43 +771,31 @@
     .hello-note{padding:0}
     .hello-note p{margin:0 auto}
     .stamps{margin-top:14px}
-    .notes-scatter{grid-template-columns:repeat(6,1fr); min-height:auto}
-    .note{grid-column:span 3}
     .gallery{grid-template-columns:repeat(2,1fr); gap:32px 22px}
-    .mixtape{grid-template-columns:1fr; gap:32px; justify-items:center}
-    .cassette{transform:rotate(0)}
-    .tracklist{width:100%}
     .frame{width:120px}
   }
   @media (max-width:600px){
     .wrap{padding:16px 12px 56px}
     section{margin:56px 0}
     .film-title{font-size:2.4rem; transform:translate(-50%,-50%) rotate(-2deg)}
-    .film-title small{font-size:.65rem; letter-spacing:.28em; margin-top:8px}
-    .film-caption{font-size:.6rem; letter-spacing:.24em; margin:14px 0 44px}
+    .film-title small{font-size:.72rem; letter-spacing:.28em; margin-top:10px}
     .frame{width:100px}
     .frames{gap:6px}
     .section-label{font-size:2.1rem}
-    .section-sub{font-size:.62rem; letter-spacing:.24em}
     .heading{gap:10px; margin-bottom:24px}
     .hi{font-size:2.8rem}
     .hello .polaroid{width:210px; transform:rotate(-3deg)}
-    .notes-scatter{grid-template-columns:1fr 1fr; gap:8px}
-    .note{grid-column:span 1; font-size:1.2rem; padding:18px 16px 20px; min-height:auto}
-    .note.n2,.note.n4,.note.n6{margin-top:24px}
     .gallery{gap:28px 18px}
     .polaroid{padding:10px 10px 32px}
     .polaroid .caption{font-size:1.15rem}
-    .cassette{width:260px}
-    .tracklist{font-size:.9rem}
     .note-card{padding:36px 26px 44px}
     .note-card::before{left:18px}
     .note-card h3, .note-card p, .note-card .sign{padding-left:16px}
     .envelope{width:240px; height:155px}
-    .click-me{font-size:1.4rem; padding:10px 26px 12px}
+    .click-me{font-size:1.55rem; padding:12px 32px 15px}
     .confetti.photo{width:52px; height:52px}
     .confetti.flower{font-size:1.6rem}
-    .deco.scissors{width:56px; height:56px}
+    .deco.scissors{display:none}
     .deco.arrow{width:60px; height:44px}
     footer{margin-top:64px; font-size:.6rem; letter-spacing:.28em}
   }
@@ -980,68 +830,54 @@
 
 <div class="wrap">
 
-  <!-- FILMSTRIP (rolling) -->
-  <!--
-    HOW TO ADD HER PHOTOS/VIDEOS:
-    Inside each <div class="frame">, replace <span class="placeholder">…</span> with either:
-      <img src="her-photo-1.jpg" alt="">
-    or
-      <video src="her-video-1.mp4" autoplay muted loop playsinline></video>
-
-    IMPORTANT: put the SAME 12 frames in BOTH .frames-set groups below, in the SAME order.
-    That's what makes the loop seamless.
-  -->
+  <!-- FILMSTRIP (rolling) — SET 2 must stay an exact copy of SET 1 for a seamless loop -->
   <div class="filmstrip">
     <div class="film-viewport">
       <div class="frames">
         <!-- ===== SET 1 ===== -->
         <div class="frame"><img src="images/IMG-20260501-WA0015.jpg" alt=""></div>
-        <div class="frame"><video src="images/Snapchat-1006388863.mp4" autoplay muted loop playsinline></video></div>
+        <div class="frame"><video src="images/Snapchat-1006388863.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
         <div class="frame"><img src="images/IMG-20260206-WA0027.jpg" alt=""></div>
-        <div class="frame"><video src="images/VID-20260601-WA0001.mp4" autoplay muted loop playsinline></video></div>
+        <div class="frame"><video src="images/VID-20260601-WA0001.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
         <div class="frame"><img src="images/Snapchat-1823844866.jpg" alt=""></div>
-        <div class="frame"><video src="images/Snapchat-1839273741.mp4" autoplay muted loop playsinline></video></div>
+        <div class="frame"><video src="images/Snapchat-1839273741.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
         <div class="frame"><img src="images/IMG-20260324-WA0011.jpg" alt=""></div>
-        <div class="frame"><video src="images/Snapchat-823214249.mp4" autoplay muted loop playsinline></video></div>
+        <div class="frame"><video src="images/Snapchat-823214249.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
         <div class="frame"><img src="images/IMG-20260206-WA0022.jpg" alt=""></div>
-        <div class="frame"><video src="images/Snapchat-1116440067.mp4" autoplay muted loop playsinline></video></div>
+        <div class="frame"><video src="images/Snapchat-1116440067.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
         <div class="frame"><img src="images/IMG-20260206-WA0015.jpg" alt=""></div>
-        <div class="frame"><video src="images/Snapchat-1112284187.mp4" autoplay muted loop playsinline></video></div>
+        <div class="frame"><video src="images/Snapchat-1112284187.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
         <div class="frame"><img src="images/Snapchat-1959260118.jpg" alt=""></div>
-        <div class="frame"><video src="images/Snapchat-1072202212.mp4" autoplay muted loop playsinline></video></div>
+        <div class="frame"><video src="images/Snapchat-1072202212.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
         <!-- ===== SET 2 (duplicate — keep identical for seamless loop) ===== -->
         <div class="frame"><img src="images/IMG-20260501-WA0015.jpg" alt=""></div>
-        <div class="frame"><video src="images/Snapchat-1006388863.mp4" autoplay muted loop playsinline></video></div>
+        <div class="frame"><video src="images/Snapchat-1006388863.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
         <div class="frame"><img src="images/IMG-20260206-WA0027.jpg" alt=""></div>
-        <div class="frame"><video src="images/VID-20260601-WA0001.mp4" autoplay muted loop playsinline></video></div>
+        <div class="frame"><video src="images/VID-20260601-WA0001.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
         <div class="frame"><img src="images/Snapchat-1823844866.jpg" alt=""></div>
-        <div class="frame"><video src="images/Snapchat-1839273741.mp4" autoplay muted loop playsinline></video></div>
+        <div class="frame"><video src="images/Snapchat-1839273741.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
         <div class="frame"><img src="images/IMG-20260324-WA0011.jpg" alt=""></div>
-        <div class="frame"><video src="images/Snapchat-823214249.mp4" autoplay muted loop playsinline></video></div>
+        <div class="frame"><video src="images/Snapchat-823214249.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
         <div class="frame"><img src="images/IMG-20260206-WA0022.jpg" alt=""></div>
-        <div class="frame"><video src="images/Snapchat-1116440067.mp4" autoplay muted loop playsinline></video></div>
+        <div class="frame"><video src="images/Snapchat-1116440067.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
         <div class="frame"><img src="images/IMG-20260206-WA0015.jpg" alt=""></div>
-        <div class="frame"><video src="images/Snapchat-1112284187.mp4" autoplay muted loop playsinline></video></div>
+        <div class="frame"><video src="images/Snapchat-1112284187.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
         <div class="frame"><img src="images/Snapchat-1959260118.jpg" alt=""></div>
-        <div class="frame"><video src="images/Snapchat-1072202212.mp4" autoplay muted loop playsinline></video></div>
+        <div class="frame"><video src="images/Snapchat-1072202212.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
       </div>
     </div>
     <div class="film-title">
       happy<br/>girlfriend's day
-      <small>for naila ♡</small>
+      <small>for Naila ♡</small>
     </div>
   </div>
-  <p class="film-caption">
-    <span>august 1</span>
-  </p>
-
 
   <!-- HI, YOU -->
   <section class="hello">
     <div class="polaroid">
       <span class="tape top"></span>
       <div class="photo"><img src="images/Snapchat-1346177277.jpg" alt=""></div>
-      <div class="caption">naila ♡</div>
+      <div class="caption">Naila ♡</div>
     </div>
 
     <div class="hello-note">
@@ -1072,14 +908,14 @@
     </div>
 
     <div class="gallery">
-      <div class="polaroid"><span class="tape top"></span><div class="photo"><img src="images/IMG-20260522-WA0000.jpg" alt=""></div><div class="caption">♡</div></div>
-      <div class="polaroid"><span class="tape top mint"></span><div class="photo"><img src="images/IMG-20260601-WA0010.jpg" alt=""></div><div class="caption">♡</div></div>
-      <div class="polaroid"><span class="tape top rose"></span><div class="photo"><img src="images/Screenshot_20260429_033903_WhatsApp.jpg" alt="" style="object-position:center center"></div><div class="caption">♡</div></div>
-      <div class="polaroid"><span class="tape top"></span><div class="photo"><img src="images/Screenshot_20260515_082414_Instagram.jpg" alt=""></div><div class="caption">♡</div></div>
-      <div class="polaroid"><span class="tape top rose"></span><div class="photo"><img src="images/Screenshot_20260722_235947_Instagram.jpg" alt="" style="object-position:center center"></div><div class="caption">♡</div></div>
-      <div class="polaroid"><span class="tape top"></span><div class="photo"><img src="images/Snapchat-430449464.jpg" alt="" style="object-position:center center"></div><div class="caption">♡</div></div>
-      <div class="polaroid"><span class="tape top mint"></span><div class="photo"><img src="images/Snapchat-448346994.jpg" alt="" style="object-position:center center"></div><div class="caption">♡</div></div>
-      <div class="polaroid"><span class="tape top"></span><div class="photo"><img src="images/IMG-20260501-WA0015.jpg" alt=""></div><div class="caption">♡</div></div>
+      <div class="polaroid"><span class="tape top"></span><div class="photo"><img src="images/IMG-20260522-WA0000.jpg" alt="" loading="lazy" decoding="async"></div><div class="caption">♡</div></div>
+      <div class="polaroid"><span class="tape top mint"></span><div class="photo"><img src="images/IMG-20260601-WA0010.jpg" alt="" loading="lazy" decoding="async"></div><div class="caption">♡</div></div>
+      <div class="polaroid"><span class="tape top rose"></span><div class="photo"><img src="images/Screenshot_20260429_033903_WhatsApp.jpg" alt="" loading="lazy" decoding="async" style="object-position:center center"></div><div class="caption">♡</div></div>
+      <div class="polaroid"><span class="tape top"></span><div class="photo"><img src="images/Screenshot_20260515_082414_Instagram.jpg" alt="" loading="lazy" decoding="async"></div><div class="caption">♡</div></div>
+      <div class="polaroid"><span class="tape top rose"></span><div class="photo"><img src="images/Screenshot_20260722_235947_Instagram.jpg" alt="" loading="lazy" decoding="async" style="object-position:center center"></div><div class="caption">♡</div></div>
+      <div class="polaroid"><span class="tape top"></span><div class="photo"><img src="images/Snapchat-430449464.jpg" alt="" loading="lazy" decoding="async" style="object-position:center center"></div><div class="caption">♡</div></div>
+      <div class="polaroid"><span class="tape top mint"></span><div class="photo"><img src="images/Snapchat-448346994.jpg" alt="" loading="lazy" decoding="async" style="object-position:center center"></div><div class="caption">♡</div></div>
+      <div class="polaroid"><span class="tape top"></span><div class="photo"><img src="images/IMG-20260501-WA0015.jpg" alt="" loading="lazy" decoding="async"></div><div class="caption">♡</div></div>
     </div>
 
     <!-- deco: arrow scribble -->
@@ -1117,8 +953,8 @@
         </div>
         <div class="note-card">
           <h3>Dear Naila,</h3>
-          <p>From the moment we met, we just clicked. So grateful to have you in my life. I would want to keep you close to me.</p>
-          <p>Your voice, laugh, personality, weird expressions, everything about you stays with me. I may not say it out loud to you everyday, but I love it. I enjoy so much when you're around me or when I'm talking to you, be it on chat or call. Be it just watching you share your screen and scroll reels, it's just so much fun.</p>
+          <p>From the moment we met, we just clicked. So grateful to have you in my life.</p>
+          <p>Your voice, laugh, personality, weird expressions, everything about you stays with me. I may not say it out loud to you often, but I love it. I enjoy so much when you're around me or when I'm talking to you, be it on chat or call. Be it just watching you share your screen and scroll reels, it's nice to spend time with you.</p>
           <p>You are an absolute cutie. You have a pure heart. And that is something I admire so much. So, yeah, just stay the same as you are and never lose your spark.</p>
           <p>There's a reason I keep coming. I try not to lose you. I just keep putting efforts with you. I also understand that there are a lot of things that you have to clear on your end, and that's okay. You don't have to worry about anything.</p>
           <p class="sign">— Amaan</p>
@@ -1132,10 +968,10 @@
   <section class="end-slide">
     <div class="mini-strip">
       <div class="mini-frames">
-        <div class="mini-frame"><img src="images/Snapchat-430449464.jpg" alt=""></div>
-        <div class="mini-frame"><img src="images/Snapchat-1297606817.jpg" alt=""></div>
-        <div class="mini-frame"><img src="images/IMG-20260201-WA0002.jpg" alt=""></div>
-        <div class="mini-frame"><img src="images/Snapchat-1008630096-1.jpg" alt=""></div>
+        <div class="mini-frame"><img src="images/Snapchat-430449464.jpg" alt="" loading="lazy" decoding="async"></div>
+        <div class="mini-frame"><img src="images/Snapchat-1297606817.jpg" alt="" loading="lazy" decoding="async"></div>
+        <div class="mini-frame"><img src="images/IMG-20260201-WA0002.jpg" alt="" loading="lazy" decoding="async"></div>
+        <div class="mini-frame"><img src="images/Snapchat-1008630096-1.jpg" alt="" loading="lazy" decoding="async"></div>
       </div>
     </div>
     <div class="end-banner">
@@ -1233,6 +1069,15 @@
     env.classList.remove('opening');
   }
 
+  var wrongTries = 0;
+  var WRONG_MSGS = [
+    'galat height hai baune ♡',
+    'arre nahi. sach bol ♡',
+    'thoda aur chhota soch ♡',
+    'hint: 4 se shuru hota hai ♡',
+    'okay fine. 4 ft 11 in. ab likh de ♡'
+  ];
+
   function checkHeight(e){
     e.preventDefault();
     var ftVal = parseInt(document.getElementById('ft').value, 10);
@@ -1247,7 +1092,8 @@
       setTimeout(function(){ lock.remove(); }, 700);
       return false;
     }
-    err.textContent = 'galat height hai baune ♡';
+    wrongTries++;
+    err.textContent = WRONG_MSGS[Math.min(wrongTries - 1, WRONG_MSGS.length - 1)];
     card.classList.remove('shake');
     void card.offsetWidth;
     card.classList.add('shake');
