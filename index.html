@@ -773,6 +773,8 @@
     .stamps{margin-top:14px}
     .gallery{grid-template-columns:repeat(2,1fr); gap:32px 22px}
     .frame{width:120px}
+    /* shorter track at this width — shorten duration to keep px/sec constant */
+    .frames{animation-duration:26s}
   }
   @media (max-width:600px){
     .wrap{padding:16px 12px 56px}
@@ -780,7 +782,7 @@
     .film-title{font-size:2.4rem; transform:translate(-50%,-50%) rotate(-2deg)}
     .film-title small{font-size:.72rem; letter-spacing:.28em; margin-top:10px}
     .frame{width:100px}
-    .frames{gap:6px}
+    .frames{gap:6px; animation-duration:21s}
     .section-label{font-size:2.1rem}
     .heading{gap:10px; margin-bottom:24px}
     .hi{font-size:2.8rem}
