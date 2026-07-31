@@ -433,66 +433,190 @@
     max-width:360px;
   }
 
-  /* ——— LITTLE NOTE (editorial letter) ——— */
+  /* ——— LITTLE NOTE (short letter — restored) ——— */
   .note-card{
-    max-width:600px;
+    max-width:520px;
     margin:0 auto;
-    background:linear-gradient(180deg, #f7efd8 0%, #f0e6ca 100%);
-    color:#2a1712;
-    padding:72px 64px 64px;
-    box-shadow:0 24px 48px rgba(0,0,0,.35), 0 4px 8px rgba(0,0,0,.2);
+    background:
+      repeating-linear-gradient(180deg, transparent 0 30px, rgba(180,60,60,.08) 30px 31px),
+      linear-gradient(180deg,#f5ecd6,#e8d9b8);
+    color:var(--ink);
+    padding:48px 44px 52px;
+    box-shadow:var(--shadow-soft);
     position:relative;
-    text-align:left;
+    clip-path:polygon(
+      0% 2%, 5% 0%, 12% 2%, 22% 0%, 32% 3%, 44% 0%, 56% 2%, 68% 0%,
+      80% 3%, 90% 0%, 100% 2%,
+      100% 98%, 92% 100%, 82% 97%, 70% 100%, 58% 98%, 46% 100%,
+      34% 97%, 22% 100%, 12% 98%, 4% 100%, 0% 98%
+    );
+    transform:rotate(-.6deg);
   }
-  .note-card .eyebrow{
-    font-family:var(--typewriter);
-    font-size:.62rem;
-    letter-spacing:.5em;
-    text-transform:uppercase;
-    color:var(--wall);
-    opacity:.55;
-    margin:0 0 28px;
-    padding:0;
+  .note-card::before{
+    content:""; position:absolute;
+    left:40px; top:0; bottom:0;
+    width:1px; background:rgba(180,60,60,.4);
   }
   .note-card h3{
-    font-family:var(--serif);
-    font-style:italic;
-    font-weight:500;
+    font-family:var(--script);
     color:var(--wall);
-    font-size:1.9rem;
-    letter-spacing:.005em;
-    margin:0 0 24px;
-    line-height:1.1;
-    padding:0;
+    font-size:1.8rem;
+    margin:0 0 18px; line-height:1;
   }
   .note-card p{
-    font-family:var(--serif);
-    font-weight:400;
-    font-size:1.18rem;
-    line-height:1.75;
-    letter-spacing:.005em;
-    margin:0 0 1.15em;
-    color:#2a1712;
-    padding:0;
-  }
-  .note-card .divider{
-    width:36px;
-    height:1px;
-    background:var(--wall);
-    opacity:.35;
-    margin:36px 0 28px;
-    border:none;
+    font-family:var(--typewriter);
+    font-size:.98rem; line-height:1.9;
+    margin:0 0 .9em;
   }
   .note-card .sign{
-    font-family:var(--serif);
-    font-style:italic;
-    font-weight:500;
+    font-family:var(--script);
     color:var(--wall);
-    font-size:1.35rem;
-    margin:0;
-    line-height:1;
-    text-align:right;
+    font-size:1.7rem;
+    margin-top:20px; line-height:1;
+  }
+
+  /* paper clip decoration */
+  .clip{
+    position:absolute; top:-18px; right:36px;
+    width:32px; height:70px;
+    z-index:2;
+  }
+
+  /* ——— ENVELOPE + burst ——— */
+  .envelope-stage{
+    position:relative;
+    display:grid; place-items:center;
+    padding:20px 0;
+    min-height:320px;
+    perspective:800px;
+  }
+  .envelope{
+    position:relative;
+    width:280px; height:180px;
+    background:#e8dcc0;
+    box-shadow:0 15px 30px rgba(0,0,0,.4), inset 0 -20px 30px rgba(0,0,0,.08);
+    cursor:pointer;
+    transition:transform .35s ease;
+    border-radius:2px;
+  }
+  .envelope::before{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg,#d9c6a3,#c9ab7c);
+    clip-path:polygon(0 0, 100% 0, 50% 62%);
+    transform-origin:top center;
+    transition:transform .5s ease;
+    box-shadow:0 2px 4px rgba(0,0,0,.15);
+  }
+  .envelope::after{
+    content:"♡";
+    position:absolute;
+    top:38%; left:50%;
+    transform:translate(-50%,-50%);
+    width:34px; height:34px;
+    display:grid; place-items:center;
+    background:#c47a7a;
+    color:#fff;
+    border-radius:50%;
+    box-shadow:0 3px 8px rgba(0,0,0,.35);
+    font-size:1rem;
+    z-index:2;
+  }
+  .envelope:hover{transform:translateY(-4px) rotate(-1deg)}
+  .envelope.opening::before{transform:rotateX(180deg)}
+  .envelope.opening{animation:env-fade .7s .3s ease forwards}
+  @keyframes env-fade{
+    to{opacity:0; transform:translateY(-30px) scale(.7)}
+  }
+
+  .click-me{
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:var(--script);
+    color:var(--paper);
+    font-size:1.6rem;
+    background:var(--wall);
+    border:none;
+    padding:10px 30px 12px;
+    border-radius:2px;
+    cursor:pointer;
+    box-shadow:0 6px 16px rgba(0,0,0,.35);
+    transition:transform .2s ease, background .2s ease;
     letter-spacing:.02em;
+  }
+  .click-me:hover{transform:translateX(-50%) translateY(-2px); background:var(--wall-hi)}
+  .envelope-stage.opened .click-me,
+  .envelope-stage.opened .envelope-hint{
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .3s ease;
+  }
+  .envelope-hint{
+    position:absolute;
+    top:14px;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:var(--typewriter);
+    font-size:.6rem;
+    letter-spacing:.4em;
+    text-transform:uppercase;
+    color:var(--rose);
+    opacity:.6;
+  }
+
+  /* confetti pieces */
+  .confetti{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    pointer-events:none;
+    animation:burst 1.8s cubic-bezier(.15,.7,.35,1) forwards;
+    will-change:transform, opacity;
+    z-index:5;
+  }
+  .confetti.flower{
+    font-size:2rem;
+    filter:drop-shadow(0 2px 4px rgba(0,0,0,.3));
+  }
+  .confetti.photo{
+    width:64px; height:64px;
+    background:#fff;
+    padding:4px 4px 12px;
+    box-shadow:0 6px 14px rgba(0,0,0,.45);
+    border-radius:2px;
+  }
+  .confetti.photo img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  @keyframes burst{
+    0%{
+      transform:translate(-50%,-50%) rotate(0deg) scale(.3);
+      opacity:0;
+    }
+    10%{opacity:1; transform:translate(-50%,-50%) rotate(0deg) scale(1)}
+    100%{
+      transform:translate(calc(-50% + var(--x,0px)), calc(-50% + var(--y,0px))) rotate(var(--r,0deg)) scale(.8);
+      opacity:0;
+    }
+  }
+
+  /* letter hidden until envelope opens */
+  .letter-reveal{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity .8s ease, transform .8s ease, max-height .8s ease;
+    pointer-events:none;
+  }
+  .letter-reveal.show{
+    max-height:2000px;
+    opacity:1;
+    transform:none;
+    pointer-events:auto;
   }
 
   /* ——— the end (mini filmstrip + banner) ——— */
@@ -786,12 +910,13 @@
     .polaroid .caption{font-size:1.15rem}
     .cassette{width:260px}
     .tracklist{font-size:.9rem}
-    .note-card{padding:44px 28px 40px; max-width:100%}
-    .note-card .eyebrow{margin-bottom:20px; letter-spacing:.4em}
-    .note-card h3{font-size:1.6rem; margin-bottom:20px}
-    .note-card p{font-size:1.05rem; line-height:1.7}
-    .note-card .divider{margin:28px 0 22px}
-    .note-card .sign{font-size:1.2rem}
+    .note-card{padding:36px 26px 44px}
+    .note-card::before{left:18px}
+    .note-card h3, .note-card p, .note-card .sign{padding-left:16px}
+    .envelope{width:240px; height:155px}
+    .click-me{font-size:1.4rem; padding:10px 26px 12px}
+    .confetti.photo{width:52px; height:52px}
+    .confetti.flower{font-size:1.6rem}
     .deco.scissors{width:56px; height:56px}
     .deco.arrow{width:60px; height:44px}
     footer{margin-top:64px; font-size:.6rem; letter-spacing:.28em}
@@ -949,15 +1074,28 @@
       <h2 class="section-label" style="margin:0 auto">one more thing</h2>
     </div>
 
-    <div class="note-card">
-      <p class="eyebrow">august 1 · a letter</p>
-      <h3>Dear Naila,</h3>
-      <p>From the moment we met, we just clicked. So grateful to have you in my life. I would want to keep you close to me.</p>
-      <p>Your voice, laugh, personality, weird expressions, everything about you stays with me. I may not say it out loud to you everyday, but I love it. I enjoy so much when you're around me or when I'm talking to you, be it on chat or call. Be it just watching you share your screen and scroll reels, it's just so much fun.</p>
-      <p>You are an absolute cutie. You have a pure heart. And that is something I admire so much. So, yeah, just stay the same as you are and never lose your spark.</p>
-      <p>There's a reason I keep coming. I try not to lose you. I just keep putting efforts with you. I also understand that there are a lot of things that you have to clear on your end, and that's okay. You don't have to worry about anything.</p>
-      <hr class="divider">
-      <p class="sign">— Amaan</p>
+    <div class="envelope-stage" id="envStage">
+      <span class="envelope-hint">tap to open</span>
+      <div class="envelope" id="envelope" onclick="openEnvelope()"></div>
+      <button type="button" class="click-me" onclick="openEnvelope()">click me ♡</button>
+    </div>
+
+    <div class="letter-reveal" id="letterReveal">
+      <div style="position:relative; max-width:520px; margin:0 auto">
+        <div class="clip">
+          <svg viewBox="0 0 32 70" fill="none" stroke="#d9c6a3" stroke-width="2.4" stroke-linecap="round">
+            <path d="M10 6 L10 54 Q10 62 18 62 Q26 62 26 54 L26 14 Q26 8 20 8 Q14 8 14 14 L14 48"/>
+          </svg>
+        </div>
+        <div class="note-card">
+          <h3>Dear Naila,</h3>
+          <p>From the moment we met, we just clicked. So grateful to have you in my life. I would want to keep you close to me.</p>
+          <p>Your voice, laugh, personality, weird expressions, everything about you stays with me. I may not say it out loud to you everyday, but I love it. I enjoy so much when you're around me or when I'm talking to you, be it on chat or call. Be it just watching you share your screen and scroll reels, it's just so much fun.</p>
+          <p>You are an absolute cutie. You have a pure heart. And that is something I admire so much. So, yeah, just stay the same as you are and never lose your spark.</p>
+          <p>There's a reason I keep coming. I try not to lose you. I just keep putting efforts with you. I also understand that there are a lot of things that you have to clear on your end, and that's okay. You don't have to worry about anything.</p>
+          <p class="sign">— Amaan</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -991,6 +1129,70 @@
       if(ft.value.length >= 1) document.getElementById('in').focus();
     });
   })();
+
+  // ——— envelope burst ———
+  var HER_PHOTOS = [
+    'images/Snapchat-1346177277.jpg','images/Snapchat-1823844866.jpg',
+    'images/IMG-20260206-WA0015.jpg','images/IMG-20260206-WA0022.jpg',
+    'images/IMG-20260206-WA0027.jpg','images/IMG-20260324-WA0011.jpg',
+    'images/IMG-20260501-WA0015.jpg','images/IMG-20260522-WA0000.jpg',
+    'images/IMG-20260601-WA0010.jpg','images/Screenshot_20260429_033903_WhatsApp.jpg',
+    'images/Screenshot_20260515_082414_Instagram.jpg','images/Screenshot_20260722_235947_Instagram.jpg',
+    'images/Snapchat-1008630096-1.jpg','images/Snapchat-1297606817.jpg',
+    'images/Snapchat-1959260118.jpg','images/Snapchat-430449464.jpg',
+    'images/Snapchat-448346994.jpg','images/IMG-20260201-WA0002.jpg'
+  ];
+  var FLOWERS = ['🌸','🌺','🌷','💐','🌹','🌼','🥀','🌻','✿','❀','♡','♥'];
+
+  function openEnvelope(){
+    var stage = document.getElementById('envStage');
+    var env = document.getElementById('envelope');
+    var reveal = document.getElementById('letterReveal');
+    if(stage.classList.contains('opened')) return;
+
+    stage.classList.add('opened');
+    env.classList.add('opening');
+
+    // create burst pieces
+    var total = 42;
+    for(var i=0; i<total; i++){
+      var el = document.createElement('div');
+      var angle = (Math.PI * 2 * i / total) + (Math.random() - .5) * .4;
+      var distance = 180 + Math.random() * 260;
+      var x = Math.cos(angle) * distance;
+      var y = Math.sin(angle) * distance * .85 - 40;
+      var r = (Math.random() - 0.5) * 900;
+
+      el.style.setProperty('--x', x + 'px');
+      el.style.setProperty('--y', y + 'px');
+      el.style.setProperty('--r', r + 'deg');
+      el.style.animationDelay = (Math.random() * 0.25) + 's';
+      el.style.animationDuration = (1.4 + Math.random() * 0.8) + 's';
+
+      if(i % 2 === 0){
+        el.className = 'confetti photo';
+        var img = document.createElement('img');
+        img.src = HER_PHOTOS[Math.floor(Math.random() * HER_PHOTOS.length)];
+        img.alt = '';
+        el.appendChild(img);
+      } else {
+        el.className = 'confetti flower';
+        el.textContent = FLOWERS[Math.floor(Math.random() * FLOWERS.length)];
+      }
+      stage.appendChild(el);
+    }
+
+    // clean up confetti + reveal letter
+    setTimeout(function(){
+      var pieces = stage.querySelectorAll('.confetti');
+      for(var j=0; j<pieces.length; j++) pieces[j].remove();
+    }, 2600);
+
+    setTimeout(function(){
+      stage.style.display = 'none';
+      reveal.classList.add('show');
+    }, 1400);
+  }
 
   function checkHeight(e){
     e.preventDefault();
